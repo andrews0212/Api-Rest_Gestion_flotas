@@ -1,4 +1,4 @@
-package DTO;
+package entidad;
 
 import jakarta.persistence.*;
 
@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "asignaciones")
-public class Asignacione {
+public class Asignaciones {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -14,11 +14,11 @@ public class Asignacione {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "matricula")
-    private Vehiculo matricula;
+    private Vehiculos matricula;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_ruta")
-    private Ruta idRuta;
+    private Rutas idRuta;
 
     @Column(name = "fecha_asignacion")
     private LocalDate fechaAsignacion;
@@ -31,19 +31,19 @@ public class Asignacione {
         this.id = id;
     }
 
-    public Vehiculo getMatricula() {
+    public Vehiculos getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(Vehiculo matricula) {
+    public void setMatricula(Vehiculos matricula) {
         this.matricula = matricula;
     }
 
-    public Ruta getIdRuta() {
+    public Rutas getIdRuta() {
         return idRuta;
     }
 
-    public void setIdRuta(Ruta idRuta) {
+    public void setIdRuta(Rutas idRuta) {
         this.idRuta = idRuta;
     }
 

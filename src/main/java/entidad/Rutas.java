@@ -1,4 +1,4 @@
-package DTO;
+package entidad;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -11,7 +11,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "rutas")
-public class Ruta {
+public class Rutas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -40,7 +40,7 @@ public class Ruta {
     private Instant fechaHoraFin;
 
     @OneToMany(mappedBy = "idRuta")
-    private Set<Asignacione> asignaciones = new LinkedHashSet<>();
+    private Set<Asignaciones> asignaciones = new LinkedHashSet<>();
 
     public Integer getId() {
         return id;
@@ -98,11 +98,11 @@ public class Ruta {
         this.fechaHoraFin = fechaHoraFin;
     }
 
-    public Set<Asignacione> getAsignaciones() {
+    public Set<Asignaciones> getAsignaciones() {
         return asignaciones;
     }
 
-    public void setAsignaciones(Set<Asignacione> asignaciones) {
+    public void setAsignaciones(Set<Asignaciones> asignaciones) {
         this.asignaciones = asignaciones;
     }
 

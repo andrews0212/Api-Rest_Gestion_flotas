@@ -1,4 +1,4 @@
-package DTO;
+package entidad;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "mantenimientos")
-public class Mantenimiento {
+public class Mantenimientos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -16,7 +16,7 @@ public class Mantenimiento {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "matricula")
-    private Vehiculo matricula;
+    private Vehiculos matricula;
 
     @NotNull
     @Column(name = "fecha", nullable = false)
@@ -37,11 +37,11 @@ public class Mantenimiento {
         this.id = id;
     }
 
-    public Vehiculo getMatricula() {
+    public Vehiculos getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(Vehiculo matricula) {
+    public void setMatricula(Vehiculos matricula) {
         this.matricula = matricula;
     }
 

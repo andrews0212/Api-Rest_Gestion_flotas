@@ -1,4 +1,4 @@
-package DTO;
+package entidad;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -9,7 +9,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "vehiculos")
-public class Vehiculo {
+public class Vehiculos {
     @Id
     @Size(max = 50)
     @Column(name = "matricula", nullable = false, length = 50)
@@ -40,10 +40,10 @@ public class Vehiculo {
     private String estado;
 
     @OneToMany(mappedBy = "matricula")
-    private Set<Asignacione> asignaciones = new LinkedHashSet<>();
+    private Set<Asignaciones> asignaciones = new LinkedHashSet<>();
 
     @OneToMany(mappedBy = "matricula")
-    private Set<Mantenimiento> mantenimientos = new LinkedHashSet<>();
+    private Set<Mantenimientos> mantenimientos = new LinkedHashSet<>();
 
     public String getMatricula() {
         return matricula;
@@ -93,19 +93,19 @@ public class Vehiculo {
         this.estado = estado;
     }
 
-    public Set<Asignacione> getAsignaciones() {
+    public Set<Asignaciones> getAsignaciones() {
         return asignaciones;
     }
 
-    public void setAsignaciones(Set<Asignacione> asignaciones) {
+    public void setAsignaciones(Set<Asignaciones> asignaciones) {
         this.asignaciones = asignaciones;
     }
 
-    public Set<Mantenimiento> getMantenimientos() {
+    public Set<Mantenimientos> getMantenimientos() {
         return mantenimientos;
     }
 
-    public void setMantenimientos(Set<Mantenimiento> mantenimientos) {
+    public void setMantenimientos(Set<Mantenimientos> mantenimientos) {
         this.mantenimientos = mantenimientos;
     }
 

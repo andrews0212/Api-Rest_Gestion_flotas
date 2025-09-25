@@ -1,4 +1,4 @@
-package DTO;
+package entidad;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,7 +11,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "conductores")
-public class Conductore {
+public class Conductores {
     @Id
     @Size(max = 50)
     @Column(name = "dni", nullable = false, length = 50)
