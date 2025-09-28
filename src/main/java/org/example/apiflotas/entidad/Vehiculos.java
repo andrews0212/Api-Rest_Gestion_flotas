@@ -1,5 +1,6 @@
 package org.example.apiflotas.entidad;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -40,9 +41,11 @@ public class Vehiculos {
     private String estado;
 
     @OneToMany(mappedBy = "matricula")
+    @JsonBackReference
     private Set<Asignaciones> asignaciones = new LinkedHashSet<>();
 
     @OneToMany(mappedBy = "matricula")
+    @JsonBackReference
     private Set<Mantenimientos> mantenimientos = new LinkedHashSet<>();
 
     public String getMatricula() {
