@@ -1,4 +1,4 @@
-package entidad;
+package org.example.apiflotas.entidad;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

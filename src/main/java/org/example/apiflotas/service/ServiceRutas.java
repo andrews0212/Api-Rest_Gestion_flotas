@@ -1,8 +1,9 @@
-package service;
+package org.example.apiflotas.service;
 
+import org.example.apiflotas.entidad.Rutas;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import repositorios.RutasRepositorios;
+import org.example.apiflotas.repositorios.RutasRepositorios;
 
 @RestController
 @RequestMapping("/rutas")
@@ -15,22 +16,22 @@ public class ServiceRutas {
     }
 
     @GetMapping
-    public java.util.List<entidad.Rutas> getAllRutas() {
+    public java.util.List<Rutas> getAllRutas() {
         return rutasRepositorio.findAll();
     }
 
     @GetMapping("/{id}")
-    public entidad.Rutas findRuta(@PathVariable String id) {
+    public Rutas findRuta(@PathVariable String id) {
         return rutasRepositorio.findById(id).orElse(null);
     }
 
     @PostMapping
-    public entidad.Rutas addRuta(@RequestBody entidad.Rutas ruta) {
+    public Rutas addRuta(@RequestBody Rutas ruta) {
         return rutasRepositorio.save(ruta);
     }
 
     @PutMapping("/{id}")
-    public org.springframework.http.ResponseEntity<entidad.Rutas> updateRuta(@PathVariable String id, @RequestBody entidad.Rutas ruta) {
+    public org.springframework.http.ResponseEntity<Rutas> updateRuta(@PathVariable String id, @RequestBody Rutas ruta) {
         return rutasRepositorio.findById(id).map(existingRuta -> {
             existingRuta.setOrigen(ruta.getOrigen());
             existingRuta.setDestino(ruta.getDestino());

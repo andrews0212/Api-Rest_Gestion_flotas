@@ -1,9 +1,9 @@
-package service;
+package org.example.apiflotas.service;
 
-import entidad.Vehiculos;
+import org.example.apiflotas.entidad.Vehiculos;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import repositorios.VehiculoRepositorio;
+import org.example.apiflotas.repositorios.VehiculoRepositorio;
 
 import java.util.List;
 

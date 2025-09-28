@@ -1,6 +1,6 @@
-package repositorios;
+package org.example.apiflotas.repositorios;
 
-import entidad.Conductores;
+import org.example.apiflotas.entidad.Conductores;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ConductoresRepositorio extends JpaRepository<Conductores, String> {

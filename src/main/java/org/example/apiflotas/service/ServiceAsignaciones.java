@@ -1,9 +1,9 @@
-package service;
+package org.example.apiflotas.service;
 
-import entidad.Asignaciones;
+import org.example.apiflotas.entidad.Asignaciones;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import repositorios.AsignacionesRepositorios;
+import org.example.apiflotas.repositorios.AsignacionesRepositorios;
 
 @RestController
 @RequestMapping("/asignaciones")
@@ -15,17 +15,17 @@ public class ServiceAsignaciones {
     }
 
     @org.springframework.web.bind.annotation.GetMapping
-    public java.util.List<entidad.Asignaciones> getAllAsignaciones() {
+    public java.util.List<Asignaciones> getAllAsignaciones() {
         return asignacionesRepositorio.findAll();
     }
 
     @org.springframework.web.bind.annotation.GetMapping("/{id}")
-    public entidad.Asignaciones findAsignacion(@PathVariable String id) {
+    public Asignaciones findAsignacion(@PathVariable String id) {
         return asignacionesRepositorio.findById(id).orElse(null);
     }
 
     @org.springframework.web.bind.annotation.PostMapping
-    public entidad.Asignaciones addAsignacion(@RequestBody entidad.Asignaciones asignacion) {
+    public Asignaciones addAsignacion(@RequestBody Asignaciones asignacion) {
         return asignacionesRepositorio.save(asignacion);
     }
 

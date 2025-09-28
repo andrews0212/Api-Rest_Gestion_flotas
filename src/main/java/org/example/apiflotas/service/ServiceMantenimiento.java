@@ -1,9 +1,9 @@
-package service;
+package org.example.apiflotas.service;
 
-import entidad.Mantenimientos;
+import org.example.apiflotas.entidad.Mantenimientos;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import repositorios.MantenimientoRepositorio;
+import org.example.apiflotas.repositorios.MantenimientoRepositorio;
 import java.util.List;
 
 @RestController

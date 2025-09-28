@@ -1,8 +1,9 @@
-package service;
+package org.example.apiflotas.service;
 
+import org.example.apiflotas.entidad.Conductores;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import repositorios.ConductoresRepositorio;
+import org.example.apiflotas.repositorios.ConductoresRepositorio;
 
 @RestController
 @RequestMapping("/conductores")
@@ -14,22 +15,22 @@ public class ServiceConductor {
     }
 
     @GetMapping
-    public java.util.List<entidad.Conductores> getAllConductores() {
+    public java.util.List<Conductores> getAllConductores() {
         return conductorRepositorio.findAll();
     }
 
     @GetMapping("/{dni}")
-    public entidad.Conductores findConductor(@PathVariable String dni) {
+    public Conductores findConductor(@PathVariable String dni) {
         return conductorRepositorio.findById(dni).orElse(null);
     }
 
     @PostMapping
-    public entidad.Conductores addConductor(@RequestBody entidad.Conductores conductor) {
+    public Conductores addConductor(@RequestBody Conductores conductor) {
         return conductorRepositorio.save(conductor);
     }
 
     @PutMapping("/{dni}")
-    public org.springframework.http.ResponseEntity<entidad.Conductores> updateConductor(@PathVariable String dni, @RequestBody entidad.Conductores conductor) {
+    public org.springframework.http.ResponseEntity<Conductores> updateConductor(@PathVariable String dni, @RequestBody Conductores conductor) {
         return conductorRepositorio.findById(dni).map(existingConductor -> {
             existingConductor.setNombre(conductor.getNombre());
             existingConductor.setLicencia(conductor.getLicencia());

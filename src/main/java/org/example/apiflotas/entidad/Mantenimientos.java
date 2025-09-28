@@ -1,4 +1,4 @@
-package entidad;
+package org.example.apiflotas.entidad;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
